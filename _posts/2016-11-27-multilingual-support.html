@@ -1,0 +1,184 @@
+---
+layout: default_l1
+title:  "Multilingual support"
+date:   2016-11-27 09:25:47 +0530
+categories: usage
+---
+<div class="page-header">
+    <h1>Multilingual support</h1>
+</div>
+
+<ul class="list-unstyled">
+    <li>
+    <a href="#multilingual_support">Multilingual support</a>
+    <ul>
+        <li><a href="#switch_between_languages">Switch between languages</a></li>
+        <li><a href="#translate">Translate</a></li>
+        <li><a href="#add_languages">Add languages</a></li>
+        <li><a href="#remove_languages">Remove languages</a></li>
+    </ul>
+    </li> 
+</ul>
+
+<hr>
+
+<h2 id="multilingual_support">Multilingual support</h2>
+
+<p><b>Blueshield</b> comes with a built-in <b>multilingual support</b>. not just only offering easy way to translate whole <b>Blueshield</b> system for any language. also offering advanced <b>language switcher</b> to switch between languages easily.</p>
+
+<h3 id="switch_between_languages">Switch between languages</h3>
+
+<p>Switching between languages is pretty easy for both <b>Signedin/Loggedin</b> and <b>Signedout/Loggedout</b> users.</p>
+
+<p>If you are <b>Signedin/Loggedin</b> user, then you can simply switch between languages using <b>user localization settings</b> in <b>user settings</b>.
+</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/language_switching_localization_user_settings.png">
+<img class="img-responsive" src="../assets/img/content/usage/language_switching_localization_user_settings.png" alt="language switching localization user settings">
+</a>
+
+<br>
+
+<p>If you are <b>Signedout/Loggedout</b> user, then you can simply switch between languages using <b>languages dropdown menu</b> in <b>main navigation bar</b>.
+</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/language_switching_dropdown_menu.png">
+<img class="img-responsive" src="../assets/img/content/usage/language_switching_dropdown_menu.png" alt="language switching dropdown menu">
+</a>
+
+<br>
+
+<p>Both <b>Signedin/Loggedin</b> and <b>Signedout/Loggedout</b> users can switch between languages on any page of <b>Blueshied</b> by simply parsing <b>?lang=[valid and available language code]</b> GET variable in the URL.</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/lang_get_variable_in_url.png">
+<img class="img-responsive" src="../assets/img/content/usage/lang_get_variable_in_url.png" alt="lang get variable in url">
+</a>
+
+<br>
+
+<p>If <b>lang GET variable</b> submited with a <b>unavailable or invalid</b> language code, then <b>Blueshield</b> will display friendly alert.</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/unavailable_or_invalid_language_code.png">
+<img class="img-responsive" src="../assets/img/content/usage/unavailable_or_invalid_language_code.png" alt="unavailable or invalid language code">
+</a>
+
+<h3 id="translate">Translate</h3>
+
+<p>Translating <b>Blueshield</b> interfaces is pretty easy. let's see how we can do that.</p>
+
+<p><b>Blueshield</b> language files are sitting inside <code>application/language/[language idiom or code]</code> directories.</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/where_language_file_located.png">
+<img class="img-responsive" src="../assets/img/content/usage/where_language_file_located.png" alt="where language file located">
+</a>
+
+<br>
+
+<p>You can simply openup those <b>language</b> files using your favorite text editor and start translating. This is how those <b>language</b> files are looks like.</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/how_its_looks_like_language_files.png">
+<img class="img-responsive" src="../assets/img/content/usage/how_its_looks_like_language_files.png" alt="how its looks like language files">
+</a>
+
+<br>
+
+<p>This how you should do the translate. Pretty easy right?</p>
+<a class="fancybox" rel="group" href="../assets/img/content/usage/before_and_after_translated_to_arabic.png">
+<img class="img-responsive" src="../assets/img/content/usage/before_and_after_translated_to_arabic.png" alt="before and after translated to arabic">
+</a>
+
+<p>Make sure you save the file after translate. and it's better save those <b>language</b> files with character encoding <b>utf-8</b>.</p>
+
+<h3 id="add_languages">Add languages</h3>
+
+<p>To add new languages to the <b>Blueshield</b>, follow bellow step by step instructions.</p>
+
+<p>As a example let's add <b>Spanish</b> language support into <b>Blueshield</b></p>
+
+<p>
+	<ol>
+		<li>You need to find corresponding <b>iso639-1|2 standard language code</b> for your new language. you can find standard language codes for all languages from bellow URLs<br>
+			<a href="http://www.w3schools.com/tags/ref_language_codes.asp" target="_blank" rel="nofollow">http://www.w3schools.com/tags/ref_language_codes.asp</a><br>
+			<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank" rel="nofollow">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a><br>
+			<a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank" rel="nofollow">https://www.loc.gov/standards/iso639-2/php/code_list.php</a><br>
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/languages_and_language_codes.png">
+			<img class="img-responsive" src="../assets/img/content/usage/languages_and_language_codes.png" alt="languages and language codes">
+			</a><br>
+			For <b>Spanish</b> corresponding language code is <b>es</b>.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/spanish_language_code.png">
+			<img class="img-responsive" src="../assets/img/content/usage/spanish_language_code.png" alt="spanish language code">
+			</a>
+		</li><br>
+		<li>Openup <b>localization.php</b> configuration file sitting inside <code>application/config</code> directory with your favoite text editor.
+		<a class="fancybox" rel="group" href="../assets/img/content/usage/where_to_find_localization_config_file.png">
+		<img class="img-responsive" src="../assets/img/content/usage/where_to_find_localization_config_file.png" alt="where to find localization config file">
+		</a>
+		</li><br>
+		<li>
+			Add <b>new language array</b> for <b>Spanish</b> language in <b>localization.php</b>. and then save the file.
+		<a class="fancybox" rel="group" href="../assets/img/content/usage/localization_config_file_before_add_new_language_array.png">
+		<img class="img-responsive" src="../assets/img/content/usage/localization_config_file_before_add_new_language_array.png" alt="localization config file before add new language array">
+		</a>
+		<a class="fancybox" rel="group" href="../assets/img/content/usage/localization_config_file_after_add_new_language_array.png">
+		<img class="img-responsive" src="../assets/img/content/usage/localization_config_file_after_add_new_language_array.png" alt="localization config file after add new language array">
+		</a>
+		</li><br>
+		<li>
+			Openup <b>user.php</b> (controller file) sitting inside <code>application/controllers</code> directory with your favorite text editor.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/where_to_find_user_controller.png">
+			<img class="img-responsive" src="../assets/img/content/usage/where_to_find_user_controller.png" alt="where to find user controller">
+			</a>
+			And then find the <code>settings()</code> method in <code>user controller</code>.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/settings_method_in_user_controller.png">
+			<img class="img-responsive" src="../assets/img/content/usage/settings_method_in_user_controller.png" alt="settings method in user controller">
+			</a>
+			And then find the <code>localization elseif code block</code>.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/localization_elseif_block_in_user_controller.png">
+			<img class="img-responsive" src="../assets/img/content/usage/localization_elseif_block_in_user_controller.png" alt="localization elseif block in user controller">
+			</a>
+			And then add the new <b>language code</b> (in this example that would be "es") in to the <code>form validation <b>in_list[]</b> comma seperated list</code> and save the file.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/in_list_comma_seperated_list.png">
+			<img class="img-responsive" src="../assets/img/content/usage/in_list_comma_seperated_list.png" alt="in list comma seperated list">
+			</a>
+		</li><br>
+		<li>
+			Create a new <b>language directory</b> inside <code>application/language</code> directory. name that directory with your <b>new language code</b>.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/create_new_language_directory.gif">
+			<img class="img-responsive" src="../assets/img/content/usage/create_new_language_directory.gif" alt="create new language directory">
+			</a>
+		</li><br>
+		<li>Copy all the <b>language files</b> from another language directory and paste into <b>newly created language directory</b> (in this example "es").
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/copy_all_the_language_files_into_new_language_directory.gif">
+			<img class="img-responsive" src="../assets/img/content/usage/copy_all_the_language_files_into_new_language_directory.gif" alt="copy all the language files into new language directory">
+			</a>
+			And then you can simply translate those copy and pasted <b>language files</b> into your new language (in this example into <b>Spanish</b>). To get more more info about how to translate those language files, <a href="http://127.0.0.1:4000/usage/multilingual-support.html#translate" target="_blank">click here</a>.
+		</li><br>
+		<li>
+			Now you need to do is adding new language into the <b>language switching dropdown menu</b> in <b>main navigation bar</b>.
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/language_switching_dropdown_menu.png">
+			<img class="img-responsive" src="../assets/img/content/usage/language_switching_dropdown_menu.png" alt="language switching dropdown menu">
+			</a>
+			<p>To do that, simply openup <b>main_nav.php</b> view file sitting inside <code>application/views/templates</code> directory with your favorite text editor and add new language option into <b>language switching dropdown menu</b>. </p>
+			
+			<p>You may be wondering why this dropdown menu not populate automatically using a simple <code>foreach loop</code>. there is a reason for that, the reason is, we want to maintain simplicity and flexibility. so user have freedom to impliment any kind of language switching interfaces. but if you have some little PHP knowledge, then you can simply loop through all the available language options in <b>localization.php</b> <b>languages array</b>. there is no anything stopping you.</p>
+			<a class="fancybox" rel="group" href="../assets/img/content/usage/where_to_find_main_nav_view_file.png">
+			<img class="img-responsive" src="../assets/img/content/usage/where_to_find_main_nav_view_file.png" alt="where to find main nav view file">
+			</a>
+			To get good idea about how to add new language item into <b>language switching dropdown menu</b>, simply click on bellow image. that will open a animated .gif file.
+			<a href="../assets/img/content/usage/add_new_language_into_language_switching_dropdown_menu.gif">
+			<img class="img-responsive" src="../assets/img/content/usage/how_to_add_new_language_into_language_switcher_preview.png" alt="how to add new language into language switcher preview">
+			</a>
+		</li>
+	</ol>
+</p>
+
+<p>Congratulations! you are now successfully added a new language (in this example <b>Spanish</b> language) into the <b>Blueshield</b>.</p>
+
+<h3 id="remove_languages">Remove languages</h3>
+
+<p>Removing existing languages in <b>Blueshield</b> is pretty easy. only you have to do is reverse the all steps that we are used to add languages into the <b>Blueshield</b>.</p>
+
+<p>As a example let's remove <b>Spanish</b> language from <b>Blueshield</b>. To do that simply followup bellow step by step instructions.</p>
+
+<ol>
+	<li>Remove <b>language array for spanish</b> from <b>localization.php</b> configuration file sitting inside <code>application/config</code> directory.</li>
+	<li>Remove "es" item in <b>in_list comma seperated list</b> that is in <code>settings()</code> method inside <code>user</code> controller file sitting inside <code>application/controllers</code> directory.</li>
+	<li>Remove <b>es</b> language directory in <code>application/language</code> directory.</li>
+	<li>Remove <b>Spanish</b> language item in <b>language switching dropdown menu</b> in <b>main_nav.php</b> file sitting inside <code>application/views/templates</code> directory.</li>
+</ol>
+
+<p>Congratulations! you are now successfully removed a new language (in this example <b>Spanish</b> language) in <b>Blueshield</b>.</p>
