@@ -92,8 +92,18 @@ $db['default'] = array(
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
+
+	/**
+	 * Don't change this if in doubt.
+	 * Default: utf8. priority no 01: utf8mb4. utf8mb4 gives better unicode support than utf8.
+	 */
+	'char_set' => 'utf8mb4',
+
+	/**
+	 * Don't change this if in doubt.
+	 * Default: utf8_general_ci. priority no 01: utf8mb4_unicode_520_ci. priority no 02: utf8mb4_unicode_ci.
+	 */
+	'dbcollat' => '',
 	'swap_pre' => '',
 	'encrypt' => FALSE,
 	'compress' => FALSE,
