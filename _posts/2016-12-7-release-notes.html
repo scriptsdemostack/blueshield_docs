@@ -12,6 +12,7 @@ categories: setup
     <li>
     <a href="#release_notes">Release notes</a>
     <ul>
+        <li><a href="#blueshield_2.2">Blueshield 2.2 - 2016 December 20</a></li>
         <li><a href="#blueshield_2.1">Blueshield 2.1 - 2016 December 8</a></li>
         <li><a href="#blueshield_2.0">Blueshield 2.0 (Initial release) - 2016 December 6</a></li>
     </ul>
@@ -24,6 +25,17 @@ categories: setup
 
 <p>Get the all the information about <b>Blueshield</b> releases.</p>
 
+<h3 id="blueshield_2.2">Blueshield 2.2 - 2016 December 20</h3>
+
+<ol>
+    <li>Added both <b>utf8</b> and <b>utf8mb4</b> charset compatible database versions into the <b>Blueshield</b> package.</li>
+    <li>Well commented <b>database.php</b> configuration file to give better information about how to configure <b>database charset and collation</b> related to their <b>MySQL</b> version.</li>
+    <li>Improved searching large block of text by removing <b>newline</b> and <b>tab</b> characters before comparison.</li>
+    <li>Improved pagination meta info by adding auto range detection for pages.</li>
+    <li>Did very little <b>User interface</b> changes to make <b>Blueshield</b> even more sleak.</li>
+    <li>Documentation updated.</li>
+</ol>
+
 <h3 id="blueshield_2.1">Blueshield 2.1 - 2016 December 8</h3>
 
 <ol>
@@ -33,7 +45,7 @@ categories: setup
 	<li>Database <b>collate</b> configuration option is now optional. so you don't have to set it in <b>config.php</b> file.</li>
 	<li>For normalize font weight for "h" tags, Blueshield now using "font-weight: 700" instead of "500". we believe "font-weight: 400" is too thin for "h" tags.</li>
 	<li>Added few pure css animation effects into the <b>Blushield</b> interface in order to give smooth experience to the end user.</li>
-	<li>Documentation also updated.</li>
+	<li>Documentation updated.</li>
 </ol>
 
 <p>There is no any <b>database</b> changes. so you can simply replace all the <b>Blushield version 2.0</b> files from <b>Blueshield version 2.1</b> files. but you need to reconfigure <b>updated blueshield system</b> as you did in <b>Blueshield version 2.0</b>.</p>
