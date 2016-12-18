@@ -18,6 +18,7 @@ categories: setup
         <li><a href="#email_configuration">Email configuration</a></li>
         <li><a href="#google_recaptcha_configuration">Google reCAPTCHA configuration</a></li>
         <li><a href="#default_language_configuration">Default language configuration</a></li>
+        <li><a href="#common_errors_and_how_to_fix_them">Common errors and how to fix them</a></li>
     </ul>
     </li> 
 </ul>
@@ -85,7 +86,7 @@ $db['default'] = array(
 	<b class="text-danger">'hostname' => 'localhost'</b>,
 	<b class="text-danger">'username' => 'root'</b>,
 	<b class="text-danger">'password' => ''</b>,
-	<b class="text-danger">'database' => 'blueshield'</b>,
+	<b class="text-danger">'database' => 'blueshield</b>',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -96,12 +97,26 @@ $db['default'] = array(
 	/**
 	 * Don't change this if in doubt.
 	 * Default: utf8. priority no 01: utf8mb4. utf8mb4 gives better unicode support than utf8.
+	 * 
+	 * If your MySQL version is bellow v5.5.3, Then char_set "utf8mb4" will not work and can throw some errors
+	 * like, "500 Internal Server Error". Then you should change current char_set from "utf8mb4" to "utf8".
 	 */
 	'char_set' => 'utf8mb4',
 
 	/**
 	 * Don't change this if in doubt.
 	 * Default: utf8_general_ci. priority no 01: utf8mb4_unicode_520_ci. priority no 02: utf8mb4_unicode_ci.
+	 *
+	 * Setting "dbcollat" is optional. But due to different version of MySQL can occur some errors like, 
+	 * database collation conflict errors, internal server errors. If you are getting those kind of errors,
+	 * then you can setting up "dbcollat". To do that follow bellow instructions.
+	 *
+	 * If your MySQL version is bellow v5.5.3 and "char_set" is "utf8", Then you can try setting "dbcollat" as
+	 * "utf8_general_ci". for e.i: 'dbcollat' => 'utf8_general_ci'.
+	 *
+	 * If your MySQL version is v5.5.3 or above v5.5.3 and "char_set" is "utf8mb4", Then you can try setting "dbcollat" as
+	 * "utf8mb4_unicode_520_ci" (Newer version and recommended) or "utf8mb4_unicode_ci". for e.i: 'dbcollat' => 'utf8mb4_unicode_520_ci',
+	 * 'dbcollat' => 'utf8mb4_unicode_ci'.
 	 */
 	'dbcollat' => '',
 	'swap_pre' => '',
@@ -154,3 +169,59 @@ $db['default'] = array(
 <a class="fancybox" rel="group" href="../assets/img/content/setup/language_configuration_item_in_config_php_file.png">
 <img class="img-responsive" src="../assets/img/content/setup/language_configuration_item_in_config_php_file.png" alt="language configuration item in config php file">
 </a>
+
+<h3 id="common_errors_and_how_to_fix_them">Common errors and how to fix them</h3>
+
+<p>Due to so many different server environments and miss configuration of <b>Blueshield</b> app, some errors can occur. but don't be worry. we can fix them all.</p>
+
+<ol>
+	<li>
+		<h4>500 Internal Server Error</h4>
+		<a class="fancybox" rel="group" href="../assets/img/content/setup/500_internal_server_error.png">
+		<img class="img-responsive" src="../assets/img/content/setup/500_internal_server_error.png" alt="500 internal server error">
+		</a>
+
+		<p>If you are getting this kind of error. then please follow bellow instructions in order to fix this error.</p>
+
+		<ol>
+			<li>
+				Don't add this kind of unnecessary spaces in <b>all configurations (Specially in database configurations)</b>.
+				<a class="fancybox" rel="group" href="../assets/img/content/setup/db_configuration_wrong_and_correct_way.gif">
+				<img class="img-responsive" src="../assets/img/content/setup/db_configuration_wrong_and_correct_way.gif" alt="db configuration wrong and correct way">
+				</a>
+			</li>
+			<li>
+				Make sure <b>all database configurations</b> are correct. some <b>database configurations</b> can be found in your <b>web hosting controle panel</b>. for e.i: hostname, username, databse name and etc...
+			</li>
+			<li>
+				If your MySQL version is bellow v5.5.3, Then database <b>char_set</b> <b>"utf8mb4"</b> will not work and can throw some errors
+	 			like this. You should change current char_set from "utf8mb4" to "utf8". and use <b>utf8</b> database .sql files in <b>Blueshield</b> package.
+			</li>
+			<li>
+				<p>
+					Setting "dbcollat" database configuration is optional. but due to different version of MySQL can occur some errors like, 
+					database collation conflict errors, internal server errors and etc...
+				</p>
+				
+				<p>
+					If your MySQL version is bellow v5.5.3 and "char_set" is "utf8", Then you can try setting "dbcollat" as "utf8_general_ci". for e.i: <code>'dbcollat' => 'utf8_general_ci'</code>.
+				</p>
+				
+				<p>
+					If your MySQL version is v5.5.3 or above v5.5.3 and "char_set" is "utf8mb4", Then you can try setting "dbcollat" as
+					"utf8mb4_unicode_520_ci" (Newer version and recommended) or "utf8mb4_unicode_ci". for e.i: <code>'dbcollat' => 'utf8mb4_unicode_520_ci'</code>, <code>'dbcollat' => 'utf8mb4_unicode_ci'</code>.
+				</p>
+			</li>
+			<li>
+				Make sure your web server support for <b>.HTACCESS</b> files. if your web server not support for <b>.HTACCESS</b> files, then simply delete <b>.HTACCESS</b> file
+				sitting inside <b>app root</b> directory. and configure <code>$config['index_page']</code> configuration in <b>config.php</b> file sitting inside <code>[app root]/application/config</code> directory.
+				to get more information about how to configure <b>Blueshield</b> app to run without <b>.HTACCESS</b> support can be found <a href="#base_url">here</a>.
+			</li>
+		</ol>
+	</li>
+</ol>
+
+<p>
+	Still if you are getting some errors, don't be worry or feel bad. we are here to help you. please contact us any time at <a href="mailto:scriptseries.com@gmail.com?subject=ref from blueshield docs">scriptseries.com@gmail.com</a>. 
+	we will reply soon as possible with detailed instructions.
+</p>
